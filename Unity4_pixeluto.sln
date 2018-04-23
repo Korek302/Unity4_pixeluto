@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity4_pixeluto.Plugins", "Unity4_pixeluto.Plugins.csproj", "{FC546B8A-81AC-F693-3EA9-6055527E5ABD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity4_pixeluto", "Unity4_pixeluto.csproj", "{600B1BB7-510A-4418-2FF8-D057386C2470}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity4_pixeluto.Editor.Plugins", "Unity4_pixeluto.Editor.Plugins.csproj", "{CE13EC96-EAC6-2933-2F4B-C5ADACEA2A40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC546B8A-81AC-F693-3EA9-6055527E5ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC546B8A-81AC-F693-3EA9-6055527E5ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC546B8A-81AC-F693-3EA9-6055527E5ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC546B8A-81AC-F693-3EA9-6055527E5ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{600B1BB7-510A-4418-2FF8-D057386C2470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{600B1BB7-510A-4418-2FF8-D057386C2470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{600B1BB7-510A-4418-2FF8-D057386C2470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{600B1BB7-510A-4418-2FF8-D057386C2470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE13EC96-EAC6-2933-2F4B-C5ADACEA2A40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE13EC96-EAC6-2933-2F4B-C5ADACEA2A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE13EC96-EAC6-2933-2F4B-C5ADACEA2A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE13EC96-EAC6-2933-2F4B-C5ADACEA2A40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
