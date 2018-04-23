@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityStandardAssets._2D;
 
-public class victoryManager : MonoBehaviour
+public class VictoryManager : MonoBehaviour
 {
     public GameObject PlayAgainButton;
     public GameObject LvlFinishPanel;
@@ -28,7 +28,7 @@ public class victoryManager : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Player.GetComponent<Platformer2DUserControl>().movingEnabled = false;
+            Player.GetComponent<PixelutoController>().CanMove = false;
             Animator.speed = 0;
 
             if (ValueContainer.Container.CurrLvl == finalLvl)
@@ -58,8 +58,8 @@ public class victoryManager : MonoBehaviour
     IEnumerator jumpToNewLayer()
     {
         yield return new WaitForSeconds(2.0f);
-        ValueContainer.Container.CurrLvl = 2;
-        ValueContainer.Container.Hearts = Player.GetComponent<hpManager>().GetHearts();
+        ValueContainer.Container.CurrLvl++;
+        ValueContainer.Container.Hearts = Player.GetComponent<HpManager>().GetHearts();
         SceneManager.LoadScene("GameLvl" + ValueContainer.Container.CurrLvl);
     }
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets._2D;
 
-public class hpManager : MonoBehaviour
+public class HpManager : MonoBehaviour
 {
     public GameObject[] Hearts;
     public Rigidbody2D CharacterBody;
-    public Platformer2DUserControl PlayerController;
+    public PixelutoController PixelutoController;
     public Animator Animator;
     public GameObject GameOverPanel;
 
@@ -47,9 +47,10 @@ public class hpManager : MonoBehaviour
 
     private void gameOver()
     {
-        PlayerController.movingEnabled = false;
+        PixelutoController.CanMove = false;
         Animator.speed = 0;
         GameOverPanel.SetActive(true);
+        ValueContainer.Container.Score = 0;
     }
 
     public void RestartGame()
@@ -67,14 +68,14 @@ public class hpManager : MonoBehaviour
     private void knockBack()
     {
         StartCoroutine("haltMovement");
-        Vector2 vector = new Vector2(Random.Range(-10.0f, -5.0f), Random.Range(0.0f, 6.0f));
+        Vector2 vector = new Vector2(Random.Range(-30.0f, -20.0f), Random.Range(1.0f, 6.0f));
         CharacterBody.velocity = vector;
     }
 
     IEnumerator haltMovement()
     {
-        PlayerController.movingEnabled = false;
+        PixelutoController.CanMove = false;
         yield return new WaitForSeconds(0.5f);
-        PlayerController.movingEnabled = true;
+        PixelutoController.CanMove = true;
     }
 }

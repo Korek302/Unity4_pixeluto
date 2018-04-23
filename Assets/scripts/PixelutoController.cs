@@ -5,21 +5,29 @@ using UnityEngine;
 
 public class PixelutoController : MonoBehaviour
 {
+    public Transform groundCheck;
+    public LayerMask whatIsGround;
+    public bool CanMove = true;
+
     private float _maxSpeed = 8.0f;
-    private float _jumpForce = 300.0f;
+    private float _jumpForce = 2000.0f;
     private Animator _animator;
     private Rigidbody2D _rigidbody;
     private int _direction = 1;
-    
+    private bool _isOnGround;
+    private float _groundRadius = 0.3f;
+
 
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
     //    _animator.SetBool("Ground", true);
+    //    _isOnGround = true;
     //}
 
     //private void OnTriggerExit2D(Collider2D collision)
     //{
     //    _animator.SetBool("Ground", false);
+    //    _isOnGround = false;
     //}
 
     //private void OnCollisionStay2D(Collision2D collision)
@@ -37,15 +45,15 @@ public class PixelutoController : MonoBehaviour
     {
         _animator = this.GetComponent<Animator>();
         _rigidbody = this.GetComponent<Rigidbody2D>();
-        _animator.SetBool("Ground", true);
     }
 
 	// Update is called once per frame
 	void Update ()
     {
-		if(Input.GetKeyDown(KeyCode.Space))
+		if(Input.GetKeyDown(KeyCode.Space) && _isOnGround && CanMove)
         {
             _rigidbody.AddForce(new Vector2(0, _jumpForce));
+            //_isOnGround = false;
         }
 	}
 
@@ -54,7 +62,7 @@ public class PixelutoController : MonoBehaviour
         //var horizontal = Input.GetAxis("Horizontal");
         
         int horizontal = 0;
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && CanMove)
         {
             horizontal = 1;
         }
@@ -63,7 +71,7 @@ public class PixelutoController : MonoBehaviour
             horizontal = 0;
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && CanMove)
         {
             horizontal = -1;
 
@@ -92,6 +100,14 @@ public class PixelutoController : MonoBehaviour
                 flip();
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.F) && CanMove && horizontal == 0)
+        {
+            StartCoroutine("szczekanko");
+        }
+
+        _isOnGround = Physics2D.OverlapCircle(groundCheck.position, _groundRadius, whatIsGround);
+        _animator.SetBool("Ground", _isOnGround);
     }
 
     private void flip()
@@ -99,5 +115,14 @@ public class PixelutoController : MonoBehaviour
         Vector2 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    IEnumerator szczekanko()
+    {
+        CanMove = false;
+        _animator.SetBool("Szczekanko", true);
+        yield return new WaitForSeconds(2.0f);
+        _animator.SetBool("Szczekanko", false);
+        CanMove = true;
     }
 }

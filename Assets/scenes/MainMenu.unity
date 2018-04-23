@@ -238,7 +238,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4ff80655cae60414c8e4a0b02f06caa9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac8eb2f24cf2a0d4a998dcbe513f07e5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -538,7 +538,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RobotBoy
+  m_Text: Pixeluto
 --- !u!222 &873925108
 CanvasRenderer:
   m_ObjectHideFlags: 0
