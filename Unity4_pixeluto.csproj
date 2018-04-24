@@ -291,6 +291,7 @@
     <Compile Include="Assets\scripts\LiftBehaviour.cs" />
     <Compile Include="Assets\scripts\MainMenuManager.cs" />
     <Compile Include="Assets\scripts\PixelutoController.cs" />
+    <Compile Include="Assets\scripts\PortalBevaviour.cs" />
     <Compile Include="Assets\scripts\Restarter.cs" />
     <Compile Include="Assets\scripts\TransSceneController.cs" />
     <Compile Include="Assets\scripts\ValueContainer.cs" />

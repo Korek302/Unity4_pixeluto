@@ -24,29 +24,6 @@ public class PixelutoController : MonoBehaviour
     private float _groundRadius = 0.3f;
     private AudioSource _audioSource;
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    _animator.SetBool("Ground", true);
-    //    _isOnGround = true;
-    //}
-
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    _animator.SetBool("Ground", false);
-    //    _isOnGround = false;
-    //}
-
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    _animator.SetBool("Ground", true);
-    //}
-
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    _animator.SetBool("Ground", false);
-    //}
-
-    // Use this for initialization
     void Start ()
     {
         _animator = this.GetComponent<Animator>();
@@ -59,7 +36,6 @@ public class PixelutoController : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.Space) && _isOnGround && CanMove)
         {
             _rigidbody.AddForce(new Vector2(0, _jumpForce));
-            //_isOnGround = false;
         }
 	}
 

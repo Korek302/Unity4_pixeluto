@@ -48,9 +48,7 @@ public class HpManager : MonoBehaviour
     private void gameOver()
     {
         PixelutoController.CanMove = false;
-        Animator.Play();
-        Animator.speed = 0;
-        GameOverPanel.SetActive(true);
+        StartCoroutine("death");
         ValueContainer.Container.Score = 0;
     }
 
@@ -68,9 +66,9 @@ public class HpManager : MonoBehaviour
 
     private void knockBack()
     {
-        StartCoroutine("haltMovement");
-        Vector2 vector = new Vector2(Random.Range(-30.0f, -20.0f), Random.Range(1.0f, 6.0f));
+        Vector2 vector = new Vector2(Random.Range(-20.0f, -10.0f), Random.Range(3.0f, 10.0f));
         CharacterBody.velocity = vector;
+        StartCoroutine("haltMovement");
     }
 
     IEnumerator haltMovement()
@@ -78,5 +76,13 @@ public class HpManager : MonoBehaviour
         PixelutoController.CanMove = false;
         yield return new WaitForSeconds(0.5f);
         PixelutoController.CanMove = true;
+    }
+
+    IEnumerator death()
+    {
+        Animator.Play("smrt");
+        yield return new WaitForSeconds(1.8f);
+        Animator.speed = 0;
+        GameOverPanel.SetActive(true);
     }
 }
