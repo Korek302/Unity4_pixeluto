@@ -424,7 +424,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1463,6 +1463,26 @@ Prefab:
       propertyPath: CharacterBody
       value: 
       objectReference: {fileID: 1590694066}
+    - target: {fileID: 61004501528470510, guid: 12a8cdd430f615249bdbff47cde7058a,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0.005295992
+      objectReference: {fileID: 0}
+    - target: {fileID: 61004501528470510, guid: 12a8cdd430f615249bdbff47cde7058a,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.9775697
+      objectReference: {fileID: 0}
+    - target: {fileID: 61004501528470510, guid: 12a8cdd430f615249bdbff47cde7058a,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.047729135
+      objectReference: {fileID: 0}
+    - target: {fileID: 61004501528470510, guid: 12a8cdd430f615249bdbff47cde7058a,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.74454176
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12a8cdd430f615249bdbff47cde7058a, type: 2}
   m_IsPrefabParent: 0
@@ -1896,12 +1916,12 @@ Prefab:
     - target: {fileID: 224113518411795128, guid: fbbaae2a1ce00bf448d4495903b1b892,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 322.05
+      value: 325.98
       objectReference: {fileID: 0}
     - target: {fileID: 224113518411795128, guid: fbbaae2a1ce00bf448d4495903b1b892,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 89
+      value: 92.05
       objectReference: {fileID: 0}
     - target: {fileID: 224261247106200086, guid: fbbaae2a1ce00bf448d4495903b1b892,
         type: 2}
@@ -2043,6 +2063,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 224113518411795128, guid: fbbaae2a1ce00bf448d4495903b1b892,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 152.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 224113518411795128, guid: fbbaae2a1ce00bf448d4495903b1b892,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 23.89
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbbaae2a1ce00bf448d4495903b1b892, type: 2}
   m_IsPrefabParent: 0
@@ -2088,7 +2118,7 @@ Prefab:
     - target: {fileID: 114457734591435670, guid: aaead922a784a0143bcab7b8c181d0c5,
         type: 2}
       propertyPath: newLocX
-      value: 32
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 114457734591435670, guid: aaead922a784a0143bcab7b8c181d0c5,
         type: 2}

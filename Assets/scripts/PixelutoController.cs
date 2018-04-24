@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PixelutoController : MonoBehaviour
@@ -9,7 +8,8 @@ public class PixelutoController : MonoBehaviour
     public LayerMask whatIsGround;
     public bool CanMove = true;
     public GameObject Bullet;
-
+    public int Direction = 1;
+    
     [SerializeField]
     private AudioClip szczekankoClip;
     [SerializeField]
@@ -19,7 +19,6 @@ public class PixelutoController : MonoBehaviour
     private float _jumpForce = 2000.0f;
     private Animator _animator;
     private Rigidbody2D _rigidbody;
-    private int _direction = 1;
     private bool _isOnGround;
     private float _groundRadius = 0.3f;
     private AudioSource _audioSource;
@@ -37,13 +36,9 @@ public class PixelutoController : MonoBehaviour
         {
             _rigidbody.AddForce(new Vector2(0, _jumpForce));
         }
-	}
 
-    private void FixedUpdate()
-    {
-        //var horizontal = Input.GetAxis("Horizontal");
-        
         int horizontal = 0;
+
         if (Input.GetKey(KeyCode.D) && CanMove)
         {
             if (!_audioSource.isPlaying)
@@ -55,8 +50,8 @@ public class PixelutoController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
-            _audioSource.Stop();
             horizontal = 0;
+            _audioSource.Stop();
         }
 
         if (Input.GetKey(KeyCode.A) && CanMove)
@@ -71,26 +66,29 @@ public class PixelutoController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
-            _audioSource.Stop();
             horizontal = 0;
+            _audioSource.Stop();
         }
 
-        _rigidbody.velocity = new Vector2(_maxSpeed * horizontal, _rigidbody.velocity.y);
-        _animator.SetFloat("Speed", Math.Abs(_maxSpeed * horizontal));
+        if (CanMove)
+        {
+            _rigidbody.velocity = new Vector2(_maxSpeed * horizontal, _rigidbody.velocity.y);
+            _animator.SetFloat("Speed", Math.Abs(_maxSpeed * horizontal));
+        }
 
         if(horizontal > 0)
         {
-            if (_direction == -1)
+            if (Direction == -1)
             {
-                _direction = 1;
+                Direction = 1;
                 flip();
             }
         }
         else if(horizontal < 0)
         {
-            if (_direction == 1)
+            if (Direction == 1)
             {
-                _direction = -1;
+                Direction = -1;
                 flip();
             }
         }
@@ -99,6 +97,7 @@ public class PixelutoController : MonoBehaviour
         {
             StartCoroutine("szczekanko");
         }
+
         if (Input.GetKeyDown(KeyCode.E) && CanMove)
         {
             Fire();
@@ -106,7 +105,7 @@ public class PixelutoController : MonoBehaviour
 
         _isOnGround = Physics2D.OverlapCircle(groundCheck.position, _groundRadius, whatIsGround);
         _animator.SetBool("Ground", _isOnGround);
-    }
+	}
 
     private void flip()
     {
@@ -130,7 +129,7 @@ public class PixelutoController : MonoBehaviour
     private void Fire()
     {
         Transform t = gameObject.transform;
-        if (_direction > 0)
+        if (Direction > 0)
         {
             var bullet = (GameObject)Instantiate(Bullet, new Vector3(t.position.x + 1.0f, t.position.y, t.position.z), t.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(20.0f, 0.0f);

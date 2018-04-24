@@ -46,11 +46,14 @@ public class VictoryManager : MonoBehaviour
     public void RestartGame()
     {
         ValueContainer.Container.CurrLvl = 1;
+        ValueContainer.Container.Score = 0;
         SceneManager.LoadScene("GameLvl" + ValueContainer.Container.CurrLvl);
     }
 
     public void BackToMenu()
     {
+        ValueContainer.Container.CurrLvl = 1;
+        ValueContainer.Container.Score = 0;
         SceneManager.LoadScene("MainMenu");
     }
 

@@ -1,8 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityStandardAssets._2D;
 
 public class HpManager : MonoBehaviour
 {
@@ -66,14 +64,15 @@ public class HpManager : MonoBehaviour
 
     private void knockBack()
     {
-        Vector2 vector = new Vector2(Random.Range(-20.0f, -10.0f), Random.Range(3.0f, 10.0f));
+        PixelutoController.CanMove = false;
+        Vector2 vector = new Vector2(PixelutoController.Direction < 0 ? 
+            Random.Range(8.0f, 12.0f) : Random.Range(-12.0f, -8.0f), Random.Range(3.0f, 10.0f));
         CharacterBody.velocity = vector;
         StartCoroutine("haltMovement");
     }
 
     IEnumerator haltMovement()
     {
-        PixelutoController.CanMove = false;
         yield return new WaitForSeconds(0.5f);
         PixelutoController.CanMove = true;
     }
