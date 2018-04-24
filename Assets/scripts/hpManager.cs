@@ -48,6 +48,7 @@ public class HpManager : MonoBehaviour
     private void gameOver()
     {
         PixelutoController.CanMove = false;
+        Animator.Play();
         Animator.speed = 0;
         GameOverPanel.SetActive(true);
         ValueContainer.Container.Score = 0;
