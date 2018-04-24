@@ -40,7 +40,6 @@ public class VictoryManager : MonoBehaviour
                 LvlFinishPanel.SetActive(true);
                 StartCoroutine("jumpToNewLayer");
             }
-            ValueContainer.Container.CurrLvl = 1;
         }
     }
 
